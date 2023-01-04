@@ -12,7 +12,7 @@ def start():
     if mp4:
         video.streams.get_highest_resolution().download(save_folder)
     else:
-        audio = video.streams.filer(only_audio=True).first().download(output_path=save_folder)
+        audio = video.streams.filter(only_audio=True).first().download(output_path = save_folder)
         base, ext = os.path.splitext(audio)
         os.rename(audio, base + ".mp3")
 
